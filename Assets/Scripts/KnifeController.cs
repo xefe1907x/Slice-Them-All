@@ -25,7 +25,6 @@ public class KnifeController : MonoBehaviour
     {
         JumpKnife();
         FlipKnife();
-        Debug.Log(transform.rotation.x);
     }
 
     void JumpKnife()
