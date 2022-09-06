@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     public GameObject tapText;
     public GameObject levelCanvas;
+    public GameObject effectAndKnife;
+    public GameObject settingsPanel;
 
     public TextMeshProUGUI levelText;
 
@@ -44,6 +46,28 @@ public class GameController : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     levelCanvas.SetActive(false);
+                }
+            }
+        }
+        
+        if (effectAndKnife != null)
+        {
+            if (effectAndKnife.activeInHierarchy)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    effectAndKnife.SetActive(false);
+                }
+            }
+        }
+        
+        if (settingsPanel != null)
+        {
+            if (settingsPanel.activeInHierarchy)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    settingsPanel.SetActive(false);
                 }
             }
         }
