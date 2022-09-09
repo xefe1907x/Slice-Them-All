@@ -60,16 +60,5 @@ public class GameController : MonoBehaviour
                 }
             }
         }
-        
-        if (settingsPanel != null)
-        {
-            if (settingsPanel.activeInHierarchy)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    settingsPanel.SetActive(false);
-                }
-            }
-        }
     }
 }
