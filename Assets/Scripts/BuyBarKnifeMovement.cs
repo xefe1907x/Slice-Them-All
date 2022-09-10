@@ -5,13 +5,12 @@ using UnityEngine;
 public class BuyBarKnifeMovement : MonoBehaviour
 {
     float mainPositionx;
-    float moveX = 80f;
-    float rotateZ = 25f;
+    float moveX = 250f;
     float timeForKnife;
     
     bool canGoRight;
     bool canTurnRight;
-    bool timeResetter = false;
+    bool timeResetter;
 
     void Start()
     {
@@ -74,7 +73,7 @@ public class BuyBarKnifeMovement : MonoBehaviour
     {
         if (canTurnRight & canGoRight)
         {
-            transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, -55), 0.7f);
+            transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, -55), 0.3f);
             
             if (transform.rotation.z >= 0.455f)
             {
@@ -84,7 +83,7 @@ public class BuyBarKnifeMovement : MonoBehaviour
 
         else
         {
-            transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, 0), 0.7f);
+            transform.DORotate(new Vector3(transform.rotation.x, transform.rotation.y, 0), 0.4f);
 
             if (transform.rotation.z >= 0)
             {
