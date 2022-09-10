@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ButonSessions : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+    
     public GameObject settingsPanel;
 
     AudioSource audioSource;
@@ -25,5 +28,15 @@ public class ButonSessions : MonoBehaviour
     {
         audioSource.PlayOneShot(clickButton);
         settingsPanel.SetActive(false);
+    }
+
+    public void OpenVolume()
+    {
+        audioMixer.SetFloat("volume", 0);
+    }
+    
+    public void CloseVolume()
+    {
+        audioMixer.SetFloat("volume", -80);
     }
 }

@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         LevelCounter();
-        TapTextDisabler();
+        // TapTextDisabler(); TODO: Butona tıklasan da dönmek için tıklamışsın gibi siliyo her şeyi, düzenle
     }
 
     void LevelCounter()

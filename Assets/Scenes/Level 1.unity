@@ -418,6 +418,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: CloseVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &43378333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,6 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bc89446fbc9a3459e4c3a6983fc3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: b08692e6aa7193944bf2c836d57906f9, type: 2}
   settingsPanel: {fileID: 2018488372}
   clickButton: {fileID: 8300000, guid: de17f4e7d8ae34f4893b5eedbb32bfeb, type: 3}
 --- !u!82 &274231977
@@ -967,7 +980,8 @@ AudioSource:
   m_GameObject: {fileID: 274231974}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b08692e6aa7193944bf2c836d57906f9,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4691,6 +4705,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: OpenVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
