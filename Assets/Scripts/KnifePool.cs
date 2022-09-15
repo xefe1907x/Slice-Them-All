@@ -17,7 +17,7 @@ public class KnifePool : MonoBehaviour
 
     void Start()
     {
-        knifeNumber = 1; // TODO: playprefste kaydet hangi bıçak kullanılıyo ona göre instantiate et
+        knifeNumber = 4; // TODO: playprefste kaydet hangi bıçak kullanılıyo ona göre instantiate et
     }
 
     void Update()
@@ -32,7 +32,19 @@ public class KnifePool : MonoBehaviour
             switch (knifeNumber)
             {
                 case 1:
-                    Instantiate(knifePrefab1, new Vector3(6.33f, 4.06f, 0f), Quaternion.Euler(122.83f,87.1f,-1.49f));
+                    Instantiate(knifePrefab1, new Vector3(6.32f, 4.45f, 0f), Quaternion.Euler(-242.3f,86.62f,-2.05f));
+                    isknifeInstantiated = true;
+                    break;
+                case 2:
+                    Instantiate(knifePrefab2, new Vector3(6.73f, 5.65f, 0f), Quaternion.Euler(-416.36f,86.47f,-0.7f));
+                    isknifeInstantiated = true;
+                    break;
+                case 3:
+                    Instantiate(knifePrefab3, new Vector3(6.68f, 5.5f, 0f), Quaternion.Euler(-59.51f,86.15f,-4.17f));
+                    isknifeInstantiated = true;
+                    break;
+                case 4:
+                    Instantiate(knifePrefab4, new Vector3(6.46f, 5.12f, 0f), Quaternion.Euler(60.3f,-90f,0f));
                     isknifeInstantiated = true;
                     break;
             }
