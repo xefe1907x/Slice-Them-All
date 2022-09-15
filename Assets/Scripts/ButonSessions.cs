@@ -9,9 +9,15 @@ public class ButonSessions : MonoBehaviour
     public AudioMixer audioMixer;
     
     public GameObject settingsPanel;
+    public GameObject boughtKnife2;
+    public GameObject notBoughtKnife2;
 
     AudioSource audioSource;
     public AudioClip clickButton;
+
+    bool didYouBuyFirstKnife = false;
+    bool didYouBuySecondKnife = false;
+    bool didYouBuyThirdKnife = false;
 
     void Start()
     {
@@ -38,5 +44,17 @@ public class ButonSessions : MonoBehaviour
     public void CloseVolume()
     {
         audioMixer.SetFloat("volume", -80);
+    }
+
+    public void BuyKnife2()
+    {
+        if (!didYouBuyFirstKnife)
+        {
+            if (GameController.wallet >= CostController.cost2)
+            {
+                notBoughtKnife2.SetActive(false);
+                boughtKnife2.SetActive(true);
+            }
+        }
     }
 }

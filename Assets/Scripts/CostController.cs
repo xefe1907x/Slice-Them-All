@@ -13,12 +13,12 @@ public class CostController : MonoBehaviour
     public TextMeshProUGUI cost7Text;
     public TextMeshProUGUI cost8Text;
     
-    int cost2; //First Knife
-    int cost3; //Second Knife
-    int cost4; //Third Knife
-    int cost6; //First Effect
-    int cost7; //Second Effect
-    int cost8; //Third Effect
+    public static int cost2; //First Knife
+    public static int cost3; //Second Knife
+    public static int cost4; //Third Knife
+    public static int cost6; //First Effect
+    public static int cost7; //Second Effect
+    public static int cost8; //Third Effect
 
     void Start()
     {

@@ -10,13 +10,22 @@ public class GameController : MonoBehaviour
     public GameObject settingsPanel;
 
     public TextMeshProUGUI levelText;
+    public TextMeshProUGUI walletText;
 
     int gameLevel = 1;
 
+    public static int wallet = 100000; // TODO: Playprefs'e ata.
+
     void Update()
     {
+        WalletText();
         LevelCounter();
         // TapTextDisabler(); TODO: Butona tıklasan da dönmek için tıklamışsın gibi siliyo her şeyi, düzenle
+    }
+
+    void WalletText()
+    {
+        walletText.text = wallet.ToString();
     }
 
     void LevelCounter()
