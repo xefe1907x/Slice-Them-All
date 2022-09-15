@@ -14604,6 +14604,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knifePrefab1: {fileID: 5154490381245671920, guid: 8e2f24a0326d1e843ab9a1f5b6e65b2b,
     type: 3}
+  knifePrefab2: {fileID: 0}
+  knifePrefab3: {fileID: 0}
+  knifePrefab4: {fileID: 0}
 --- !u!1001 &2138431476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14888,11 +14891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Katana
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063966717978582754, guid: 37e1ecf536bca424fa8e963289333a38,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e1ecf536bca424fa8e963289333a38, type: 3}
@@ -15362,11 +15360,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blade
       objectReference: {fileID: 0}
-    - target: {fileID: 7731439389002845602, guid: b7e52da52c52748458efecf3b38e2469,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e52da52c52748458efecf3b38e2469, type: 3}
 --- !u!1001 &5004786853735734707
@@ -15435,11 +15428,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PirateSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 3405981754782654061, guid: 07d95fe48f2b09148857774fc42b5995,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07d95fe48f2b09148857774fc42b5995, type: 3}

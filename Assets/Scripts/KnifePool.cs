@@ -11,6 +11,9 @@ public class KnifePool : MonoBehaviour
     bool isknifeInstantiated;
 
     public GameObject knifePrefab1;
+    public GameObject knifePrefab2;
+    public GameObject knifePrefab3;
+    public GameObject knifePrefab4;
 
     void Start()
     {
