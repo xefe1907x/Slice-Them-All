@@ -57,4 +57,9 @@ public class ButonSessions : MonoBehaviour
             }
         }
     }
+
+    public void TapToFly()
+    {
+        
+    }
 }

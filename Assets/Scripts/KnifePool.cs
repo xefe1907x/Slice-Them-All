@@ -32,7 +32,7 @@ public class KnifePool : MonoBehaviour
             switch (knifeNumber)
             {
                 case 0:
-                    Instantiate(knifePrefab1, new Vector3(6.32f, 4.45f, 0f), Quaternion.Euler(-242.3f,86.62f,-2.05f));
+                    Instantiate(knifePrefab1, new Vector3(6.32f, 4.45f, 0f), Quaternion.Euler(115f,90f,0f));
                     isknifeInstantiated = true;
                     break;
                 case 1:
