@@ -14,15 +14,22 @@ public class GameController : MonoBehaviour
 
     int gameLevel = 1;
 
-    public static int wallet = 100000; // TODO: Playprefs'e ata.
+    public static int wallet = 9999999; // TODO: Make 0 at the beginning
 
+    public static bool isGameStarted;
+
+    void Start()
+    {
+        wallet = PlayerPrefs.GetInt("playerWallet");
+        Physics.gravity = new Vector3(0, -20f, 0);
+    }
+    
     void Update()
     {
         WalletText();
         LevelCounter();
-        // TapTextDisabler(); TODO: Butona tıklasan da dönmek için tıklamışsın gibi siliyo her şeyi, düzenle
+        TapTextDisabler();
     }
-
     void WalletText()
     {
         walletText.text = wallet.ToString();
@@ -37,33 +44,27 @@ public class GameController : MonoBehaviour
 
     void TapTextDisabler()
     {
-        if (tapText != null)
+        if (isGameStarted)
         {
-            if (tapText.activeInHierarchy)
+            if (tapText != null)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (tapText.activeInHierarchy)
                 {
                     tapText.SetActive(false);
                 }
             }
-        }
 
-        if (levelCanvas != null)
-        {
-            if (levelCanvas.activeInHierarchy)
+            if (levelCanvas != null)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (levelCanvas.activeInHierarchy)
                 {
                     levelCanvas.SetActive(false);
                 }
             }
-        }
-        
-        if (effectAndKnife != null)
-        {
-            if (effectAndKnife.activeInHierarchy)
+
+            if (effectAndKnife != null)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (effectAndKnife.activeInHierarchy)
                 {
                     effectAndKnife.SetActive(false);
                 }

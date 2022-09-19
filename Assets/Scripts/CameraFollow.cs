@@ -9,9 +9,14 @@ public class CameraFollow : MonoBehaviour
 
     public Vector3 offset;
 
-    void Start()
+    // void Start()
+    // {
+    //     InvokeRepeating(nameof(FindTarget),0,0.25f);
+    // }
+
+    void Update()
     {
-        InvokeRepeating(nameof(FindTarget),0,0.25f);
+        FindTarget();
     }
 
     void LateUpdate()
@@ -29,11 +34,6 @@ public class CameraFollow : MonoBehaviour
         if (targetGameObject)
         {
             target = targetGameObject.transform;
-        }
-
-        if (target)
-        {
-            CancelInvoke();
         }
     }
     

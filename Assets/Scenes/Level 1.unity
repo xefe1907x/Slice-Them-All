@@ -213,7 +213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16857058}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: BuyKnife3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &16857058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +856,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 93755015}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: UseKnife1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &93755015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,7 +1722,7 @@ GameObject:
   - component: {fileID: 230506664}
   - component: {fileID: 230506663}
   m_Layer: 5
-  m_Name: Bought (Button)
+  m_Name: Bought (Button) (Closed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,7 +1793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 230506664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: UseKnife3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &230506664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2483,7 +2519,13 @@ MonoBehaviour:
   settingsPanel: {fileID: 2018488372}
   boughtKnife2: {fileID: 298714143}
   notBoughtKnife2: {fileID: 1163241655}
+  boughtKnife3: {fileID: 230506661}
+  notBoughtKnife3: {fileID: 16857055}
+  boughtKnife4: {fileID: 483525760}
+  notBoughtKnife4: {fileID: 1588988489}
   clickButton: {fileID: 8300000, guid: de17f4e7d8ae34f4893b5eedbb32bfeb, type: 3}
+  buyButton: {fileID: 8300000, guid: 51df97d45b673a14aad8ed0bdf2b57a9, type: 3}
+  thrustPower: 30085
 --- !u!82 &274231977
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2751,7 +2793,7 @@ GameObject:
   - component: {fileID: 298714146}
   - component: {fileID: 298714145}
   m_Layer: 5
-  m_Name: Bought (Button)
+  m_Name: Bought (Button) (Closed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2822,7 +2864,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 298714146}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: UseKnife2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &298714146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4895,7 +4949,7 @@ GameObject:
   - component: {fileID: 483525763}
   - component: {fileID: 483525762}
   m_Layer: 5
-  m_Name: Bought (Button)
+  m_Name: Bought (Button) (Closed)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4966,7 +5020,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 483525763}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: UseKnife4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &483525763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5868,6 +5934,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: ButtonClickSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7959,7 +8037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 904136178}
   m_Layer: 5
-  m_Name: EffectBuyPanel
+  m_Name: EffectBuyPanel (Closed at start)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8382,6 +8460,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: ButtonClickSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9849,9 +9939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeBar1: {fileID: 740927518}
-  knifeBar2: {fileID: 0}
-  knifeBar3: {fileID: 0}
-  knifeBar4: {fileID: 0}
+  knifeBar2: {fileID: 264929704}
+  knifeBar3: {fileID: 518812620}
+  knifeBar4: {fileID: 1200348448}
 --- !u!4 &1307206342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8670429531464605904, guid: a1b8e2a3d8a5d134ca5105432d34797f,
@@ -12193,7 +12283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588988492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: BuyKnife4
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1588988492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14596,7 +14698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1931981524}
   m_Layer: 5
-  m_Name: KnifeBuyPanel
+  m_Name: KnifeBuyPanel (Closed at start)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14714,13 +14816,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 274231974}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 274231976}
+        m_TargetAssemblyTypeName: ButonSessions, Assembly-CSharp
+        m_MethodName: TapToFly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

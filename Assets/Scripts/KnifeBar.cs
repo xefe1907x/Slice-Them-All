@@ -10,11 +10,42 @@ public class KnifeBar : MonoBehaviour
     public GameObject knifeBar3;
     public GameObject knifeBar4;
 
-    bool isBarInstantiated = true;
+    public static bool isBarInstantiated = true;
+    public static bool isBarReset;
 
     void Update()
     {
         KnifeShownInBar();
+        ResetBars();
+    }
+
+    void ResetBars()
+    {
+        if (isBarReset)
+        {
+            if (knifeBar1.activeInHierarchy)
+            {
+                knifeBar1.SetActive(false);
+            }
+            
+            if (knifeBar2.activeInHierarchy)
+            {
+                knifeBar2.SetActive(false);
+            }
+            
+            if (knifeBar3.activeInHierarchy)
+            {
+                knifeBar3.SetActive(false);
+            }
+            
+            if (knifeBar4.activeInHierarchy)
+            {
+                knifeBar4.SetActive(false);
+            }
+            
+            isBarReset = false;
+            isBarInstantiated = true;
+        }
     }
 
     void KnifeShownInBar()
@@ -29,19 +60,19 @@ public class KnifeBar : MonoBehaviour
             
             else if (PlayerPrefs.GetInt("knifeNumber") == 1)
             {
-                knifeBar1.SetActive(true);
+                knifeBar2.SetActive(true);
                 isBarInstantiated = false;
             }
             
             else if (PlayerPrefs.GetInt("knifeNumber") == 2)
             {
-                knifeBar1.SetActive(true);
+                knifeBar3.SetActive(true);
                 isBarInstantiated = false;
             }
             
             else if (PlayerPrefs.GetInt("knifeNumber") == 3)
             {
-                knifeBar1.SetActive(true);
+                knifeBar4.SetActive(true);
                 isBarInstantiated = false;
             }
         }

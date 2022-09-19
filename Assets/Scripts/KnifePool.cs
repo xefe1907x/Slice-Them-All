@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-
 public class KnifePool : MonoBehaviour
 {
-    int knifeNumber;
+    public static int knifeNumber;
 
-    bool isknifeInstantiated;
+    public static bool isknifeInstantiated;
 
     public GameObject knifePrefab1;
     public GameObject knifePrefab2;

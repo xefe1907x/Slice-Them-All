@@ -15,64 +15,35 @@ namespace BzKovSoft.ObjectSlicer.Samples
 		private GameObject _blade;
 #pragma warning restore 0649
 
-		bool isFirstClick;
-
-		float thrustPower = 1085f;
 		
-		Rigidbody rb;
 
 		void Start()
 		{
-			InvokeRepeating(nameof(FindTarget),0f,0.1f);
-			DOTween.Init();
+			// InvokeRepeating(nameof(FindTarget),0f,0.1f);
 		}
 
 		void Update()
 		{
+			FindTarget();
 			if (Input.GetMouseButtonDown(0))
 			{
 				var knife = _blade.GetComponentInChildren<BzKnife>();
 				knife.BeginNewSlice();
-				MoveBlade();
 				//StartCoroutine(SwingSword());
 			}
 		}
 
-		void MoveBlade()
+		void FindTarget()
 		{
-			RotateBlade();
-			if (rb != null)
+			if (!_blade)
 			{
-				if (rb.isKinematic)
-					rb.isKinematic = false;
-				
-				rb.AddForce(Vector3.up * thrustPower);
-			}
-		}
-		
-		void RotateBlade()
-		{
-			if (!isFirstClick)
-			{
-				_blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd);
-				isFirstClick = true;
+				_blade = GameObject.FindWithTag("Blade");
 			}
 
-			else
-			{
-				_blade.transform.DORotate(new Vector3(360, 0, 0), 1f, RotateMode.LocalAxisAdd);
-			}
-		}
-
-		private void FindTarget()
-		{
-			_blade = GameObject.FindWithTag("Blade");
-
-			if (_blade)
-			{
-				rb = GameObject.FindWithTag("Blade").GetComponent<Rigidbody>();
-				CancelInvoke();
-			}
+			// if (_blade)
+			// {
+			// 	CancelInvoke();
+			// }
 		}
 
 		IEnumerator SwingSword()
