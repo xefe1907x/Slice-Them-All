@@ -13,7 +13,12 @@ public class Knife_1_Trails : MonoBehaviour
     int trailNumber;
 
     public static bool isTrailActivated;
-    
+
+    void Start()
+    {
+        isTrailActivated = false;
+    }
+
     void Update()
     {
         trailNumber = PlayerPrefs.GetInt("trailNumber");

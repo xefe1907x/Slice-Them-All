@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Blade
   - Trail
+  - Finish2x
+  - Finish50x
+  - Finish10x
+  - Finish3x
+  - Finish6x
+  - Finish4x
+  - Sliceable
   layers:
   - Default
   - TransparentFX

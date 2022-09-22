@@ -16,6 +16,7 @@ public class KnifePool : MonoBehaviour
 
     void Start()
     {
+        isknifeInstantiated = false;
         knifeNumber = PlayerPrefs.GetInt("knifeNumber");
     }
 

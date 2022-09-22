@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PSword_Trails : MonoBehaviour
+public class Katana_Trails : MonoBehaviour
 {
     public GameObject trail1;
     public GameObject trail2;
@@ -12,6 +12,11 @@ public class PSword_Trails : MonoBehaviour
     int trailNumber;
 
     public static bool isTrailActivated;
+    
+    void Start()
+    {
+        isTrailActivated = false;
+    }
     
     void Update()
     {

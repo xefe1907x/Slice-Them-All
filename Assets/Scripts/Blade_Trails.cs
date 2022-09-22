@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Katana_Trails : MonoBehaviour
+public class Blade_Trails : MonoBehaviour
 {
     public GameObject trail1;
     public GameObject trail2;
@@ -13,6 +13,10 @@ public class Katana_Trails : MonoBehaviour
 
     public static bool isTrailActivated;
     
+    void Start()
+    {
+        isTrailActivated = false;
+    }
     void Update()
     {
         trailNumber = PlayerPrefs.GetInt("trailNumber");

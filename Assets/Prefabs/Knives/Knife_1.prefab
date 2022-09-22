@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 2792224781027990026}
   - component: {fileID: 4863900617869525573}
   - component: {fileID: 663502266246391240}
+  - component: {fileID: 5714190902929750510}
   m_Layer: 0
   m_Name: collider3
   m_TagString: Blade
@@ -213,6 +214,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _origin: {x: 0, y: -1, z: 0}
   _direction: {x: 0, y: 1, z: 0}
+--- !u!114 &5714190902929750510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912630294977480703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0137e7783da7b134aac3b80954d686da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5999753937000819421
 GameObject:
   m_ObjectHideFlags: 0

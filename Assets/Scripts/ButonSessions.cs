@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class ButonSessions : MonoBehaviour
 {
@@ -22,13 +23,17 @@ public class ButonSessions : MonoBehaviour
     public GameObject notBoughtTrail3;
     public GameObject boughtTrail4;
     public GameObject notBoughtTrail4;
+    public GameObject tapToFlyButton;
     GameObject _blade;
 
     AudioSource audioSource;
     public AudioClip clickButton;
     public AudioClip buyButton;
+
+    public Sequence bladeDotweenSequence;
     
     bool isFirstClick;
+    public static bool isTapToFlyDisabled;
 
     [SerializeField] float thrustPower = 10085f;
 		
@@ -44,6 +49,7 @@ public class ButonSessions : MonoBehaviour
 
     void Start()
     {
+        isTapToFlyDisabled = false;
         isBoughtKnife2 = PlayerPrefs.GetInt("isBoughtKnife2");
         isBoughtKnife3 = PlayerPrefs.GetInt("isBoughtKnife3");
         isBoughtKnife4 = PlayerPrefs.GetInt("isBoughtKnife4");
@@ -51,6 +57,7 @@ public class ButonSessions : MonoBehaviour
         isBoughtTrail3 = PlayerPrefs.GetInt("isBoughtTrail3");
         isBoughtTrail4 = PlayerPrefs.GetInt("isBoughtTrail4");
         DOTween.Init();
+        bladeDotweenSequence = DOTween.Sequence();
         audioSource = GetComponent<AudioSource>();
         BuyButtonController();
     }
@@ -58,6 +65,16 @@ public class ButonSessions : MonoBehaviour
     void Update()
     {
         FindBladeandRB();
+        DisableTapToFlyButton();
+    }
+
+    void DisableTapToFlyButton()
+    {
+        if (isTapToFlyDisabled)
+        {
+            tapToFlyButton.SetActive(false);
+            isTapToFlyDisabled = false;
+        }
     }
 
     void BuyButtonController()
@@ -150,28 +167,33 @@ public class ButonSessions : MonoBehaviour
         }
     }
 
+    Vector3 targetPoint;
     public void TapToFly()
     {
         // Move Blade
         if (rb != null)
         {
-            if (rb.isKinematic)
-                rb.isKinematic = false;
-
-            rb.AddForce(Vector3.up * thrustPower);
-            rb.AddForce(Vector3.right * (thrustPower/5.8f));
+            // rb.AddForce(Vector3.up * thrustPower);
+            // rb.AddForce(Vector3.right * (thrustPower/5.8f));
+            if(!isFirstClick)
+                targetPoint = targetPoint + Vector3.up * thrustPower + Vector3.right * thrustPower;
+            else
+                targetPoint = _blade.transform.position + Vector3.up * thrustPower + Vector3.right * thrustPower;
+            _blade.transform.DOMove(targetPoint , 1);
+            StartCoroutine(CloseGravityForGivenTime(1f));
         }
 
         // Rotate Blade
         if (!isFirstClick)
         {
-            _blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd);
+            targetPoint = _blade.transform.position + Vector3.up * thrustPower + Vector3.right * thrustPower;
+            bladeDotweenSequence.Append(_blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd));
             isFirstClick = true;
         }
 
         else
         {
-            _blade.transform.DORotate(new Vector3(360, 0, 0), 1f, RotateMode.LocalAxisAdd);
+            bladeDotweenSequence.Append(_blade.transform.DORotate(new Vector3(360, 0, 0), 1f, RotateMode.LocalAxisAdd));
         }
 
         if (!GameController.isGameStarted)
@@ -179,6 +201,18 @@ public class ButonSessions : MonoBehaviour
             GameController.isGameStarted = true;
         }
         
+    }
+
+    private IEnumerator CloseGravityForGivenTime(float timeToWait)
+    {
+        if (rb.isKinematic)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+            yield return new WaitForSeconds(timeToWait);
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
     }
 
     public void UseKnife1()
@@ -353,5 +387,11 @@ public class ButonSessions : MonoBehaviour
         Knife_1_Trails.isTrailActivated = false;
         TrailBar.isTrailInstantiated = true;
         TrailBar.isTrailReset = true;
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(0); // TODO: 0'ı next levelle değiştişr
+        Time.timeScale = 1;
     }
 }
