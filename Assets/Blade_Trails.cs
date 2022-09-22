@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knife_1_Trails : MonoBehaviour
+public class Blade_Trails : MonoBehaviour
 {
     public GameObject trail1;
     public GameObject trail2;

@@ -16,6 +16,12 @@ public class ButonSessions : MonoBehaviour
     public GameObject notBoughtKnife3;
     public GameObject boughtKnife4;
     public GameObject notBoughtKnife4;
+    public GameObject boughtTrail2;
+    public GameObject notBoughtTrail2;
+    public GameObject boughtTrail3;
+    public GameObject notBoughtTrail3;
+    public GameObject boughtTrail4;
+    public GameObject notBoughtTrail4;
     GameObject _blade;
 
     AudioSource audioSource;
@@ -32,11 +38,18 @@ public class ButonSessions : MonoBehaviour
     int isBoughtKnife3; // 0 = false, 1 = true
     int isBoughtKnife4; // 0 = false, 1 = true
 
+    int isBoughtTrail2; // 0 = false, 1 = true
+    int isBoughtTrail3; // 0 = false, 1 = true
+    int isBoughtTrail4; // 0 = false, 1 = true
+
     void Start()
     {
         isBoughtKnife2 = PlayerPrefs.GetInt("isBoughtKnife2");
         isBoughtKnife3 = PlayerPrefs.GetInt("isBoughtKnife3");
         isBoughtKnife4 = PlayerPrefs.GetInt("isBoughtKnife4");
+        isBoughtTrail2 = PlayerPrefs.GetInt("isBoughtTrail2");
+        isBoughtTrail3 = PlayerPrefs.GetInt("isBoughtTrail3");
+        isBoughtTrail4 = PlayerPrefs.GetInt("isBoughtTrail4");
         DOTween.Init();
         audioSource = GetComponent<AudioSource>();
         BuyButtonController();
@@ -65,6 +78,24 @@ public class ButonSessions : MonoBehaviour
         {
             notBoughtKnife4.SetActive(false);
             boughtKnife4.SetActive(true);
+        }
+        
+        if (isBoughtTrail2 == 1)
+        {
+            notBoughtTrail2.SetActive(false);
+            boughtTrail2.SetActive(true);
+        }
+
+        if (isBoughtTrail3 == 1)
+        {
+            notBoughtTrail3.SetActive(false);
+            boughtTrail3.SetActive(true);
+        }
+        
+        if (isBoughtTrail4 == 1)
+        {
+            notBoughtTrail4.SetActive(false);
+            boughtTrail4.SetActive(true);
         }
     }
 
@@ -239,5 +270,88 @@ public class ButonSessions : MonoBehaviour
     public void ButtonClickSound()
     {
         audioSource.PlayOneShot(clickButton);
+    }
+    
+    public void UseTrail1()
+    {
+        audioSource.PlayOneShot(clickButton);
+        
+        PlayerPrefs.SetInt("trailNumber", 0);
+
+        Knife_1_Trails.isTrailActivated = false;
+        TrailBar.isTrailInstantiated = true;
+        TrailBar.isTrailReset = true;
+    }
+    
+    public void BuyTrail2()
+    {
+        if (GameController.wallet >= CostController.cost6)
+        {
+            audioSource.PlayOneShot(buyButton);
+            notBoughtTrail2.SetActive(false);
+            boughtTrail2.SetActive(true);
+            GameController.wallet -= CostController.cost6;
+            PlayerPrefs.SetInt("playerWallet", GameController.wallet);
+            PlayerPrefs.SetInt("isBoughtTrail2", 1);
+        }
+    }
+    
+    public void UseTrail2()
+    {
+        audioSource.PlayOneShot(clickButton);
+        
+        PlayerPrefs.SetInt("trailNumber", 1);
+
+        Knife_1_Trails.isTrailActivated = false;
+        TrailBar.isTrailInstantiated = true;
+        TrailBar.isTrailReset = true;
+    }
+    
+    public void BuyTrail3()
+    {
+        if (GameController.wallet >= CostController.cost7)
+        {
+            audioSource.PlayOneShot(buyButton);
+            notBoughtTrail3.SetActive(false);
+            boughtTrail3.SetActive(true);
+            GameController.wallet -= CostController.cost7;
+            PlayerPrefs.SetInt("playerWallet", GameController.wallet);
+            PlayerPrefs.SetInt("isBoughtTrail3", 1);
+        }
+    }
+    
+    public void UseTrail3()
+    {
+        audioSource.PlayOneShot(clickButton);
+        
+        PlayerPrefs.SetInt("trailNumber", 2);
+
+        Knife_1_Trails.isTrailActivated = false;
+        TrailBar.isTrailInstantiated = true;
+        TrailBar.isTrailReset = true;
+    }
+    
+    public void BuyTrail4()
+    {
+        if (GameController.wallet >= CostController.cost8)
+        {
+            audioSource.PlayOneShot(buyButton);
+            notBoughtTrail4.SetActive(false);
+            boughtTrail4.SetActive(true);
+            GameController.wallet -= CostController.cost8;
+            PlayerPrefs.SetInt("playerWallet", GameController.wallet);
+            PlayerPrefs.SetInt("isBoughtTrail4", 1);
+        }
+    }
+    
+    public void UseTrail4()
+    {
+        audioSource.PlayOneShot(clickButton);
+        
+        PlayerPrefs.SetInt("trailNumber", 3);
+
+        Knife_1_Trails.isTrailActivated = false;
+        TrailBar.isTrailInstantiated = true;
+        TrailBar.isTrailReset = true;
     }
 }
