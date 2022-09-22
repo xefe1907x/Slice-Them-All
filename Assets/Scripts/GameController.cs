@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     {
         wallet = PlayerPrefs.GetInt("playerWallet");
         Physics.gravity = new Vector3(0, -20f, 0);
+        isGameStarted = false;
     }
     
     void Update()
