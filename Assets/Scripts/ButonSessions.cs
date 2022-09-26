@@ -34,7 +34,7 @@ public class ButonSessions : MonoBehaviour
 
     public Sequence bladeDotweenSequence;
     
-    bool isFirstClick;
+    bool isFirstClick = true;
     public static bool isTapToFlyDisabled;
     public static bool objectSliced;
     public static bool fallOnStun;
@@ -193,33 +193,33 @@ public class ButonSessions : MonoBehaviour
     }
 
     Vector3 targetPoint;
+    Coroutine gravityCoroutine;
     public void TapToFly()
     {
-        // Move Blade
-        if (rb != null)
+        if(!_blade)
+            return;
+        
+        if (gravityCoroutine != null)
         {
-            audioSource.PlayOneShot(flipVoice);
-            // rb.AddForce(Vector3.up * thrustPower);
-            // rb.AddForce(Vector3.right * (thrustPower/5.8f));
-            if(!isFirstClick)
-                targetPoint = targetPoint + Vector3.up * thrustPower + Vector3.right * thrustPower;
-            else
-                targetPoint = _blade.transform.position + Vector3.up * thrustPower + Vector3.right * thrustPower;
-            _blade.transform.DOMove(targetPoint , 1);
-            StartCoroutine(CloseGravityForGivenTime(1f));
+            StopCoroutine(gravityCoroutine);
         }
-
-        // Rotate Blade
-        if (!isFirstClick)
+        audioSource.PlayOneShot(flipVoice);
+        // rb.AddForce(Vector3.up * thrustPower);
+        // rb.AddForce(Vector3.right * (thrustPower/5.8f));
+        if (isFirstClick)
         {
             targetPoint = _blade.transform.position + Vector3.up * thrustPower + Vector3.right * thrustPower;
-            bladeDotweenSequence.Append(_blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd));
-            isFirstClick = true;
+            _blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd);
+            isFirstClick = false;
+            gravityCoroutine = StartCoroutine(CloseGravityForGivenTime(0.65f));
+            _blade.transform.DOMove(targetPoint, 0.65f);
         }
-
         else
         {
-            bladeDotweenSequence.Append(_blade.transform.DORotate(new Vector3(360, 0, 0), 1f, RotateMode.LocalAxisAdd));
+            targetPoint =  targetPoint + Vector3.up * thrustPower + Vector3.right * thrustPower;
+            _blade.transform.DORotate(new Vector3(360f, 0, 0), 1f, RotateMode.LocalAxisAdd);
+            gravityCoroutine = StartCoroutine(CloseGravityForGivenTime(1f));
+            _blade.transform.DOMove(targetPoint, 1);
         }
 
         if (!GameController.isGameStarted)

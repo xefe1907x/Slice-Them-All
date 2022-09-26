@@ -27,8 +27,12 @@ namespace BzKovSoft.ObjectSlicer.Samples
 			FindTarget();
 			if (Input.GetMouseButtonDown(0))
 			{
-				var knife = _blade.GetComponentInChildren<BzKnife>();
-				knife.BeginNewSlice();
+				if (_blade)
+				{
+					var knife = _blade.GetComponentInChildren<BzKnife>();
+					if(knife)
+						knife.BeginNewSlice();
+				}
 				//StartCoroutine(SwingSword());
 			}
 		}
