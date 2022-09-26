@@ -3338,6 +3338,10 @@ MonoBehaviour:
   tapToFlyButton: {fileID: 1966884126}
   clickButton: {fileID: 8300000, guid: de17f4e7d8ae34f4893b5eedbb32bfeb, type: 3}
   buyButton: {fileID: 8300000, guid: 51df97d45b673a14aad8ed0bdf2b57a9, type: 3}
+  mainTheme: {fileID: 8300000, guid: 3a7bc1e18c7bb1948a43f27e6dd7b887, type: 3}
+  flipVoice: {fileID: 8300000, guid: 511c525f6d2e4c14aa60167af79423bb, type: 3}
+  sliceVoice: {fileID: 8300000, guid: e4deea29db7799b4d963b18a887fc1a9, type: 3}
+  cannotSlice: {fileID: 8300000, guid: e233759c3b1e05a439477a43a51b93fa, type: 3}
   thrustPower: 5
 --- !u!82 &274231977
 AudioSource:

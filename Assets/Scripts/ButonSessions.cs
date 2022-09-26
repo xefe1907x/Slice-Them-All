@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -29,11 +27,17 @@ public class ButonSessions : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clickButton;
     public AudioClip buyButton;
+    public AudioClip mainTheme;
+    public AudioClip flipVoice;
+    public AudioClip sliceVoice;
+    public AudioClip cannotSlice;
 
     public Sequence bladeDotweenSequence;
     
     bool isFirstClick;
     public static bool isTapToFlyDisabled;
+    public static bool objectSliced;
+    public static bool fallOnStun;
 
     [SerializeField] float thrustPower = 10085f;
 		
@@ -60,12 +64,33 @@ public class ButonSessions : MonoBehaviour
         bladeDotweenSequence = DOTween.Sequence();
         audioSource = GetComponent<AudioSource>();
         BuyButtonController();
+        audioSource.PlayOneShot(mainTheme);
     }
 
     void Update()
     {
         FindBladeandRB();
         DisableTapToFlyButton();
+        VoiceofSlice();
+        VoiceofStuns();
+    }
+
+    void VoiceofSlice()
+    {
+        if (objectSliced)
+        {
+            audioSource.PlayOneShot(sliceVoice);
+            objectSliced = false;
+        }
+    }
+
+    void VoiceofStuns()
+    {
+        if (fallOnStun)
+        {
+            audioSource.PlayOneShot(cannotSlice);
+            fallOnStun = false;
+        }
     }
 
     void DisableTapToFlyButton()
@@ -173,6 +198,7 @@ public class ButonSessions : MonoBehaviour
         // Move Blade
         if (rb != null)
         {
+            audioSource.PlayOneShot(flipVoice);
             // rb.AddForce(Vector3.up * thrustPower);
             // rb.AddForce(Vector3.right * (thrustPower/5.8f));
             if(!isFirstClick)

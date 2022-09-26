@@ -13,6 +13,7 @@ TagManager:
   - Finish6x
   - Finish4x
   - Sliceable
+  - cannotSlice
   layers:
   - Default
   - TransparentFX

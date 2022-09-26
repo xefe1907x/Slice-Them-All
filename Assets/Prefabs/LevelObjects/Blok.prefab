@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6635830794504706879}
   m_Layer: 0
   m_Name: Blok
-  m_TagString: Untagged
+  m_TagString: cannotSlice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

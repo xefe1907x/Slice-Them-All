@@ -28,6 +28,7 @@ public class PointCollector : MonoBehaviour
         if (other.gameObject.CompareTag("Sliceable"))
         {
             GameController.gamePoints += 1;
+            ButonSessions.objectSliced = true;
         }
 
         if (other.gameObject.CompareTag("Finish"))
@@ -69,6 +70,11 @@ public class PointCollector : MonoBehaviour
         {
             GameController.gamePoints *= 4;
             StartCoroutine(nameof(OnFinishCoroutine));
+        }
+        
+        if (other.gameObject.CompareTag("cannotSlice"))
+        {
+            ButonSessions.fallOnStun = true;
         }
     }
 
