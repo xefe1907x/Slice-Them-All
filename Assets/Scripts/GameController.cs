@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI walletText;
     public TextMeshProUGUI levelEarning;
 
-    public static int gameLevel = 1;
+    public static int gameLevel;
     public static int wallet;
     public static int gamePoints;
 
@@ -24,11 +25,24 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        SetGameLevel();
         wallet = PlayerPrefs.GetInt("playerWallet");
         isGameStarted = false;
         gamePoints = 0;
     }
-    
+
+    void SetGameLevel()
+    {
+        if (PlayerPrefs.GetInt("gameLevel") == 0)
+        {
+            gameLevel = 1;
+        }
+        else
+        {
+            gameLevel = PlayerPrefs.GetInt("gameLevel");
+        }
+    }
+
     void Update()
     {
         WalletText();

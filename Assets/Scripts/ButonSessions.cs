@@ -391,7 +391,13 @@ public class ButonSessions : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(0); // TODO: 0'ı next levelle değiştişr
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        int nextScene = currentScene + 1;
         Time.timeScale = 1;
+        GameController.gameLevel += 1;
+        PlayerPrefs.SetInt("gameLevel", GameController.gameLevel);
+        GameController.wallet += GameController.gamePoints;
+        PlayerPrefs.SetInt("playerWallet", GameController.wallet);
+        SceneManager.LoadScene(nextScene);
     }
 }
