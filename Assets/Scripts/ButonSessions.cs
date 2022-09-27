@@ -38,6 +38,11 @@ public class ButonSessions : MonoBehaviour
     public static bool isTapToFlyDisabled;
     public static bool objectSliced;
     public static bool fallOnStun;
+    public DOTweenAnimation rotationStartAnim;
+    public DOTweenAnimation rotationContinueAnim;
+    public DOTweenAnimation moveStartAnim;
+    public DOTweenAnimation moveContinueAnim;
+
 
     [SerializeField] float thrustPower = 10085f;
 		
@@ -146,9 +151,32 @@ public class ButonSessions : MonoBehaviour
         if (_blade == null)
         {
             _blade = GameObject.FindWithTag("Blade");
-
+            
             if (_blade)
             {
+                var doTweenAnimations = _blade.GetComponents<DOTweenAnimation>();
+                var followTransform = FindObjectOfType<FollowBladeTransform>();
+
+                foreach (var doTweenAnimation in doTweenAnimations)
+                {
+                    if (doTweenAnimation.id == "RotationStart")
+                        rotationStartAnim = doTweenAnimation;
+                    if (doTweenAnimation.id == "RotationContinue")
+                        rotationContinueAnim = doTweenAnimation;
+                    if (doTweenAnimation.id == "MoveStart")
+                    {
+                        moveStartAnim = doTweenAnimation;
+                        if(followTransform)
+                            moveStartAnim.target = followTransform.targetTransform;
+                    }
+
+                    if (doTweenAnimation.id == "MoveContinue")
+                    {
+                        moveContinueAnim = doTweenAnimation;
+                        if(followTransform)
+                            moveContinueAnim.target = followTransform.targetTransform;
+                    }
+                }
                 if (rb == null)
                 {
                     rb = _blade.GetComponent<Rigidbody>();
@@ -198,7 +226,6 @@ public class ButonSessions : MonoBehaviour
     {
         if(!_blade)
             return;
-        
         if (gravityCoroutine != null)
         {
             StopCoroutine(gravityCoroutine);
@@ -208,6 +235,8 @@ public class ButonSessions : MonoBehaviour
         // rb.AddForce(Vector3.right * (thrustPower/5.8f));
         if (isFirstClick)
         {
+            rotationStartAnim.DOPlay();
+            moveStartAnim.DOPlay();
             targetPoint = _blade.transform.position + Vector3.up * thrustPower + Vector3.right * thrustPower;
             _blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd);
             isFirstClick = false;
