@@ -38,15 +38,8 @@ public class ButonSessions : MonoBehaviour
     public static bool isTapToFlyDisabled;
     public static bool objectSliced;
     public static bool fallOnStun;
-    public DOTweenAnimation rotationStartAnim;
-    public DOTweenAnimation rotationContinueAnim;
-    public DOTweenAnimation moveStartAnim;
-    public DOTweenAnimation moveContinueAnim;
 
-
-    [SerializeField] float thrustPower = 10085f;
-		
-    Rigidbody rb;
+    
     
     int isBoughtKnife2; // 0 = false, 1 = true
     int isBoughtKnife3; // 0 = false, 1 = true
@@ -151,37 +144,6 @@ public class ButonSessions : MonoBehaviour
         if (_blade == null)
         {
             _blade = GameObject.FindWithTag("Blade");
-            
-            if (_blade)
-            {
-                var doTweenAnimations = _blade.GetComponents<DOTweenAnimation>();
-                var followTransform = FindObjectOfType<FollowBladeTransform>();
-
-                foreach (var doTweenAnimation in doTweenAnimations)
-                {
-                    if (doTweenAnimation.id == "RotationStart")
-                        rotationStartAnim = doTweenAnimation;
-                    if (doTweenAnimation.id == "RotationContinue")
-                        rotationContinueAnim = doTweenAnimation;
-                    if (doTweenAnimation.id == "MoveStart")
-                    {
-                        moveStartAnim = doTweenAnimation;
-                        if(followTransform)
-                            moveStartAnim.target = followTransform.targetTransform;
-                    }
-
-                    if (doTweenAnimation.id == "MoveContinue")
-                    {
-                        moveContinueAnim = doTweenAnimation;
-                        if(followTransform)
-                            moveContinueAnim.target = followTransform.targetTransform;
-                    }
-                }
-                if (rb == null)
-                {
-                    rb = _blade.GetComponent<Rigidbody>();
-                }
-            }
         }
     }
 
@@ -219,55 +181,19 @@ public class ButonSessions : MonoBehaviour
             PlayerPrefs.SetInt("isBoughtKnife2", 1);
         }
     }
-
-    Vector3 targetPoint;
-    Coroutine gravityCoroutine;
+    
     public void TapToFly()
     {
         if(!_blade)
             return;
-        if (gravityCoroutine != null)
-        {
-            StopCoroutine(gravityCoroutine);
-        }
+
         audioSource.PlayOneShot(flipVoice);
-        // rb.AddForce(Vector3.up * thrustPower);
-        // rb.AddForce(Vector3.right * (thrustPower/5.8f));
-        if (isFirstClick)
-        {
-            rotationStartAnim.DOPlay();
-            moveStartAnim.DOPlay();
-            targetPoint = _blade.transform.position + Vector3.up * thrustPower + Vector3.right * thrustPower;
-            _blade.transform.DORotate(new Vector3(260f, 0, 0), 0.65f, RotateMode.LocalAxisAdd);
-            isFirstClick = false;
-            gravityCoroutine = StartCoroutine(CloseGravityForGivenTime(0.65f));
-            _blade.transform.DOMove(targetPoint, 0.65f);
-        }
-        else
-        {
-            targetPoint =  targetPoint + Vector3.up * thrustPower + Vector3.right * thrustPower;
-            _blade.transform.DORotate(new Vector3(360f, 0, 0), 1f, RotateMode.LocalAxisAdd);
-            gravityCoroutine = StartCoroutine(CloseGravityForGivenTime(1f));
-            _blade.transform.DOMove(targetPoint, 1);
-        }
 
         if (!GameController.isGameStarted)
         {
             GameController.isGameStarted = true;
         }
         
-    }
-
-    private IEnumerator CloseGravityForGivenTime(float timeToWait)
-    {
-        if (rb.isKinematic)
-        {
-            rb.isKinematic = true;
-            rb.useGravity = false;
-            yield return new WaitForSeconds(timeToWait);
-            rb.isKinematic = false;
-            rb.useGravity = true;
-        }
     }
 
     public void UseKnife1()

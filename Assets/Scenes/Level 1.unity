@@ -2864,6 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3434,11 +3435,6 @@ MonoBehaviour:
   flipVoice: {fileID: 8300000, guid: 511c525f6d2e4c14aa60167af79423bb, type: 3}
   sliceVoice: {fileID: 8300000, guid: e4deea29db7799b4d963b18a887fc1a9, type: 3}
   cannotSlice: {fileID: 8300000, guid: e233759c3b1e05a439477a43a51b93fa, type: 3}
-  rotationStartAnim: {fileID: 0}
-  rotationContinueAnim: {fileID: 0}
-  moveStartAnim: {fileID: 0}
-  moveContinueAnim: {fileID: 0}
-  thrustPower: 5
 --- !u!82 &274231977
 AudioSource:
   m_ObjectHideFlags: 0
