@@ -188,6 +188,7 @@ public class ButonSessions : MonoBehaviour
             return;
 
         audioSource.PlayOneShot(flipVoice);
+        KnifeSpinMechanic.isTapToFlyActive = false;
 
         if (!GameController.isGameStarted)
         {
@@ -379,6 +380,18 @@ public class ButonSessions : MonoBehaviour
         PlayerPrefs.SetInt("gameLevel", GameController.gameLevel);
         GameController.wallet += GameController.gamePoints;
         PlayerPrefs.SetInt("playerWallet", GameController.wallet);
-        SceneManager.LoadScene(nextScene);
+        KnifeSpinMechanic.isTapToFlyActive = true;
+        
+        // Yeni bölümler eklersen bu alttaki if else kısmını tamamen sil, sadece else'nin içindekini Next Level methodunun içinde tut
+        if (currentScene >= 5)
+        {
+            SceneManager.LoadScene(1);
+            GameController.gameLevel = 1;
+            PlayerPrefs.SetInt("gameLevel", GameController.gameLevel);
+        }
+        else
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 }

@@ -9,6 +9,7 @@ public class KnifeSpinMechanic : MonoBehaviour
     private bool _isFirstSpin = true;
     private bool _isSpinning;
     private Animator _knifeAnimationController;
+    public static bool isTapToFlyActive = true;
 
     private Rigidbody _rb;
     private static readonly int IsFirstSpin = Animator.StringToHash("isFirstSpin");
@@ -24,16 +25,18 @@ public class KnifeSpinMechanic : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isTapToFlyActive)
         {
             if (_isFirstSpin)
-            {
-                FirstSpin();
-            }
-            else
-            {
-                ContinuousSpin();
-            }
+                {
+                    FirstSpin();
+                }
+                else
+                {
+                    ContinuousSpin();
+                }
+
+            isTapToFlyActive = true;
         }
 
         if (Input.GetMouseButtonDown(1))

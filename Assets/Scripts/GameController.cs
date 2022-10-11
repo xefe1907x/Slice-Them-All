@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
 
     void WalletText()
     {
-        walletText.text = wallet.ToString();
+        walletText.text = "$ " + wallet.ToString();
     }
 
     void LevelCounter()
