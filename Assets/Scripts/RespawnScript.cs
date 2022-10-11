@@ -13,7 +13,6 @@ public class RespawnScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Blade"))
         {
-            RestartLevel();
             Invoke(nameof(LoadScene),1f);
         }
     }
@@ -21,12 +20,5 @@ public class RespawnScript : MonoBehaviour
     void LoadScene()
     {
         SceneManager.LoadScene(currentLevel);
-    }
-
-    void RestartLevel()
-    {
-        GameController.isGameStarted = false;
-        KnifePool.isknifeInstantiated = false;
-        KnifeBar.isBarInstantiated = true;
     }
 }

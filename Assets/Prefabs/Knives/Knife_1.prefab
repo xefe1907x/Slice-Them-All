@@ -64,6 +64,8 @@ GameObject:
   - component: {fileID: 8893596102493715695}
   - component: {fileID: 6667739506889672741}
   - component: {fileID: 8192183537518754082}
+  - component: {fileID: 5215643087282348208}
+  - component: {fileID: 6343391698131136271}
   m_Layer: 0
   m_Name: Knife_1
   m_TagString: Blade
@@ -153,6 +155,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 104
   m_CollisionDetection: 0
+--- !u!95 &5215643087282348208
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154490381245671920}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f39e9d686cc822d4aa156bd5aead77d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6343391698131136271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154490381245671920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5048f211b4ebc774da70b4f286d270ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceMultiplier: 250
+  forceMode: 1
 --- !u!1 &5912630294977480703
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +200,7 @@ GameObject:
   - component: {fileID: 2792224781027990026}
   - component: {fileID: 4863900617869525573}
   - component: {fileID: 663502266246391240}
+  - component: {fileID: 5714190902929750510}
   m_Layer: 0
   m_Name: collider3
   m_TagString: Blade
@@ -213,6 +250,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _origin: {x: 0, y: -1, z: 0}
   _direction: {x: 0, y: 1, z: 0}
+--- !u!114 &5714190902929750510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912630294977480703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0137e7783da7b134aac3b80954d686da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5999753937000819421
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +404,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1641814547671648629, guid: edf9b7d4cda764e438d1e50bb8ad425d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trail
+      objectReference: {fileID: 0}
     - target: {fileID: 1641814547671648630, guid: edf9b7d4cda764e438d1e50bb8ad425d,
         type: 3}
       propertyPath: m_RootOrder
@@ -440,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641814547671648629, guid: 20f89624ceabcd2408e6317c528b4f0f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trail
       objectReference: {fileID: 0}
     - target: {fileID: 1641814547671648630, guid: 20f89624ceabcd2408e6317c528b4f0f,
         type: 3}
@@ -527,6 +586,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1641814547671648629, guid: be80756d8cc3ae3498018046a48776b7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trail
+      objectReference: {fileID: 0}
     - target: {fileID: 1641814547671648630, guid: be80756d8cc3ae3498018046a48776b7,
         type: 3}
       propertyPath: m_RootOrder
@@ -612,6 +676,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641814547671648629, guid: 0b9bfb52a3a20ce4698acea351d957f6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trail
       objectReference: {fileID: 0}
     - target: {fileID: 1641814547671648630, guid: 0b9bfb52a3a20ce4698acea351d957f6,
         type: 3}

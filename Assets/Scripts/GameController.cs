@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -8,31 +9,73 @@ public class GameController : MonoBehaviour
     public GameObject levelCanvas;
     public GameObject effectAndKnife;
     public GameObject settingsPanel;
+    public GameObject _youWinPanel;
 
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI walletText;
+    public TextMeshProUGUI levelEarning;
 
-    int gameLevel = 1;
-
-    public static int wallet = 9999999; // TODO: Make 0 at the beginning
+    public static int gameLevel;
+    public static int wallet;
+    public static int gamePoints;
 
     public static bool isGameStarted;
+    public static bool isYouWinPanelOpen;
+    public static bool canWeCloseYouWinPanel;
 
     void Start()
     {
+        SetGameLevel();
         wallet = PlayerPrefs.GetInt("playerWallet");
-        Physics.gravity = new Vector3(0, -20f, 0);
+        isGameStarted = false;
+        gamePoints = 0;
     }
-    
+
+    void SetGameLevel()
+    {
+        if (PlayerPrefs.GetInt("gameLevel") == 0)
+        {
+            gameLevel = 1;
+        }
+        else
+        {
+            gameLevel = PlayerPrefs.GetInt("gameLevel");
+        }
+    }
+
     void Update()
     {
         WalletText();
         LevelCounter();
         TapTextDisabler();
+        YouWinPanel();
+        CloseWinPanel();
     }
+
+    void YouWinPanel()
+    {
+        levelEarning.text = gamePoints.ToString();
+
+        if (isYouWinPanelOpen)
+        {
+            _youWinPanel.SetActive(true);
+            isYouWinPanelOpen = false;
+        }
+    }
+
+    void CloseWinPanel()
+    {
+        if (canWeCloseYouWinPanel)
+        {
+            _youWinPanel.SetActive(false);
+            canWeCloseYouWinPanel = false;
+        }
+    }
+    
+
     void WalletText()
     {
-        walletText.text = wallet.ToString();
+        walletText.text = "$ " + wallet.ToString();
     }
 
     void LevelCounter()

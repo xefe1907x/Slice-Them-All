@@ -13,6 +13,12 @@ public class KnifeBar : MonoBehaviour
     public static bool isBarInstantiated = true;
     public static bool isBarReset;
 
+    void Start()
+    {
+        isBarInstantiated = true;
+        isBarReset = false;
+    }
+
     void Update()
     {
         KnifeShownInBar();

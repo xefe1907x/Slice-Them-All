@@ -13,13 +13,15 @@ public class Knife_1_Trails : MonoBehaviour
     int trailNumber;
 
     public static bool isTrailActivated;
+
     void Start()
     {
-        trailNumber = PlayerPrefs.GetInt("trailNumber");
+        isTrailActivated = false;
     }
 
     void Update()
     {
+        trailNumber = PlayerPrefs.GetInt("trailNumber");
         TrailController();
     }
 
@@ -27,6 +29,7 @@ public class Knife_1_Trails : MonoBehaviour
     {
         if (!isTrailActivated)
         {
+            ResetTrails();
             switch (trailNumber)
             {
                 case 0:
@@ -47,5 +50,13 @@ public class Knife_1_Trails : MonoBehaviour
                     break;
             }
         }
+    }
+
+    void ResetTrails()
+    {
+        trail1.SetActive(false);
+        trail2.SetActive(false);
+        trail3.SetActive(false);
+        trail4.SetActive(false);
     }
 }
